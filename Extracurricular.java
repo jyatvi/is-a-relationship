@@ -15,10 +15,10 @@ public class Extracurricular
      */
     public Extracurricular()
     {
-        hoursPerDay = 4;
+        hoursPerDay = 2;
         members = 20;
     }
-    
+
     public Extracurricular(int h, int m)
     {
         hoursPerDay = h;
@@ -28,37 +28,41 @@ public class Extracurricular
     public int getHours()
     {
         return hoursPerDay;
-    } 
-    
+    }
+
     public int getMembers()
     {
         return members;
-    } 
-    
+    }
+
     public void setHours(int h)
     {
         hoursPerDay = h;
     }
-    
+
     public void setMembers(int m)
     {
         members = m;
     }
-    
+
     public boolean collegeReadiness()
     {
-        if (hoursPerDay > 3)
+        if (hoursPerDay > 2)
             return true;
         else
             return false;
     }
-    
-    public int successRate()
+
+    public int successRate() //we can also do hoursPerDay/hoursPerDayOprimal (not total)
     {
-        int hoursPerDayTotal = 50;
-        if (hoursPerDay * members / hoursPerDayTotal > 1)
+        int hoursPerDayTotalOptimal = 50;
+        if (hoursPerDay * members / hoursPerDayTotalOptimal > 1)
             return 100;
         else
-            return hoursPerDay * members / hoursPerDayTotal * 100;
+            return hoursPerDay * members / hoursPerDayTotalOptimal * 100;
+    }
+
+    public String toString(){
+      return("hours per day: "+hoursPerDay+" members: "+members);
     }
 }
