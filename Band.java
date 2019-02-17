@@ -47,7 +47,8 @@ public class Band extends Extracurricular
     public void addPlayer(String instr){
         for (int i=0; i<instruments.size(); i++){
             if (instruments.get(i).equals(instr)){
-                numPlayers.set(i, numPlayers.get(i)+1);
+                int currNumPlayers=numPlayers.get(i);
+                numPlayers.set(i, currNumPlayers+1);
                 super.setMembers(super.getMembers()+1);
                 return;
             }
@@ -62,7 +63,7 @@ public class Band extends Extracurricular
             return(false);
         }
 
-        if (instruments.get(i).equals(instr) &&numPlayers.get(i)>0){
+        if (instruments.get(i).equals(instr) && numPlayers.get(i)>0){
                 return(true);
         }
 
@@ -70,16 +71,63 @@ public class Band extends Extracurricular
 
     }
 
+    public int amountOfType(String type){
+      if (type.equals("woodwind")){
+        String[] woodwind={"flute", "oboe", "saxophone"};
+        return(numMatches(woodwind));
+      }
+      else if (type.equals("brass")){
+        String[] brass={"horn", "trumpet", "tuba"};
+        return(numMatches(brass));
+      }
+      else if (type.equals("string")){
+        String[] string={"guitar", "violin", "yukelale"};
+        return(numMatches(string));
+      }
+      else{//if (type.equals("percussion")){
+        String[] percussion={"drum", "xylophone", "gong"};
+        return(numMatches(percussion));
+      }
+    }
+
+    public int numMatches(String[] type){
+      int numMatches=0;
+      for (int j=0; j<instruments.size(); j++){
+        for (int i=0; i<type.length; i++){
+          if (type[i].equals(instruments.get(j))){
+            numMatches+=numPlayers.get(j);
+          }
+        }
+      }
+      return(numMatches);
+    }
+
+    public int getHours(){
+      return(super.getHours());
+    }
+
+    public int getMembers(){
+      return(super.getMembers());
+    }
+
     public String getDirectorName(){
         return(directorName);
     }
 
-    public String getInstruments(){
+    public ArrayList<String> getInstruments(){
       return(instruments);
     }
 
-    public String getNumPlayers(){
+    public ArrayList<Integer> getNumPlayers(){
       return(numPlayers);
+    }
+
+    public void setHours(int h){
+      super.setHours(h);
+    }
+
+    public void setMembers(int m){
+      super.setMembers(m);
     }
 
     public void setDirectorName(String d){
@@ -95,7 +143,8 @@ public class Band extends Extracurricular
     }
 
     public String toString(){
-      return("Instruments: "+instruments+", Number of Players for Each Instrument: "+numPlayers);
+      return(super.toString()+", instruments: "+instruments+", number of players for each instrument: "+numPlayers);
+      //return(", Instruments: "+instruments+", Number of Players for Each Instrument: "+numPlayers);
     }
 
 

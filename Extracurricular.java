@@ -45,12 +45,12 @@ public class Extracurricular
         members = m;
     }
 
-    public boolean collegeReadiness()
+    public String isCollegeReady()
     {
         if (hoursPerDay > 2)
-            return true;
+            return "yes :)";
         else
-            return false;
+            return "no :(";
     }
 
     public int successRate() //we can also do hoursPerDay/hoursPerDayOprimal (not total)
@@ -63,6 +63,6 @@ public class Extracurricular
     }
 
     public String toString(){
-      return("hours per day: "+hoursPerDay+" members: "+members);
+      return("hours per day: "+hoursPerDay+", members: "+members);
     }
 }
