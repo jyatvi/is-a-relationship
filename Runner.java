@@ -6,12 +6,12 @@ public class Runner{
     Extracurricular extracurricular0=new Extracurricular(); //2 hrs, 30 members
     System.out.println("Does this extracurricular get you into college? "+extracurricular0.isCollegeReady());
     System.out.println(extracurricular0.toString()); //println hours per day, num of mems
-    extracurricular.setHours(5); //5 hrs 30 mems
+    extracurricular0.setHours(5); //5 hrs 30 mems
     System.out.println("Now does this extracurricular get you into college? "+extracurricular0.isCollegeReady());
 
     //extracurr with params (hours per day, number of members)
     Extracurricular extracurricular1=new Extracurricular(3,25);  //3 hrs, 25 mems
-    extracurricular.setMembers(15); //3 hrs, 15 members
+    extracurricular1.setMembers(15); //3 hrs, 15 members
     System.out.println(extracurricular1.toString()); //println hours per day, num of mems
     System.out.println("Does this extracurricular get you into college? "+extracurricular1.isCollegeReady());
 
