@@ -62,7 +62,8 @@ public class Extracurricular
             return hoursPerDay * members / hoursPerDayTotalOptimal * 100;
     }
 
-    public String toString(){
-      return("hours per day: "+hoursPerDay+", members: "+members);
+    public String toString()
+    {
+        return "hours per day: " + hoursPerDay + " members: " + members;
     }
 }
