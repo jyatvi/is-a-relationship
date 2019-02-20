@@ -7,7 +7,7 @@ public class Runner{
     System.out.println("Does this extracurricular get you into college? "+extracurricular0.isCollegeReady());
     System.out.println(extracurricular0.toString()); //println hours per day, num of mems
     extracurricular0.setHours(5); //5 hrs 30 mems
-    System.out.println("Now does this extracurricular get you into college? "+extracurricular0.isCollegeReady());
+    System.out.println("Now, does this extracurricular get you into college? "+extracurricular0.isCollegeReady());
 
     //extracurr with params (hours per day, number of members)
     Extracurricular extracurricular1=new Extracurricular(3,25);  //3 hrs, 25 mems
@@ -40,8 +40,13 @@ public class Runner{
 
     //printing "properties"
     System.out.println(band.toString()); //println number of hours per day, number of members, list of instuments, and list of number of players of each instrument
-    System.out.println("number of string players: "+band.amountOfType("string"));
-    System.out.println("number of woodwind players: "+band.amountOfType("woodwind"));
+    System.out.println("Is there a saxophone player? "+band.isPlayer("saxophone"));
+    System.out.println("Is there a xylophone player? "+band.isPlayer("xylophone"));
+
+
+
+    System.out.println("number of string instrument players: "+band.amountOfType("string"));
+    System.out.println("number of woodwind instrument players: "+band.amountOfType("woodwind"));
     System.out.println("Does Band get you into college? "+band.isCollegeReady());
   }
 }

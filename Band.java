@@ -58,17 +58,13 @@ public class Band extends Extracurricular
         super.setMembers(super.getMembers()+1);
     }
 
-    public boolean isPlayer(String instr, int i){
-        if (i==instruments.size()){
-            return(false);
+    public String isPlayer(String instr){
+        for (int i=0; i<instruments.size(); i++){
+          if (instr.equals(instruments.get(i)) && numPlayers.get(i)>0){
+            return("yes :)");
+          }
         }
-
-        if (instruments.get(i).equals(instr) && numPlayers.get(i)>0){
-                return(true);
-        }
-
-        return(isPlayer(instr, i+1));
-
+        return("no :(");
     }
 
     public int amountOfType(String type){
