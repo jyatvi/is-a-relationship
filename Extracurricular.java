@@ -63,6 +63,6 @@ public class Extracurricular
     }
 
     public String toString(){
-      return("hours per day: "+hoursPerDay+", members: "+members);
+      return("hours per day: " + hoursPerDay + ", members: " + members);
     }
 }
