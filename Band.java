@@ -1,32 +1,28 @@
 import java.util.ArrayList;
 /**
- * Write a description of class Band here.
- *
+ * Band is a subclass of Extracurricular.
  * @author (your name)
- * @version (a version number or a date)
  */
 public class Band extends Extracurricular
 {
-    // instance variables - replace the example below with your own
-    ArrayList<String> instruments;
-    ArrayList<Integer> numPlayers;
-    String directorName;
-
+    //encapsulated fields
+    private ArrayList<String> instruments;
+    private ArrayList<Integer> numPlayers;
+    private String directorName;
 
 
     /**
      * Constructor for objects of class Band
      */
-    public Band()
+    public Band() //default constructor
     {
-        // initialise instance variables
         super();
         instruments=new ArrayList<String>();
         numPlayers=new ArrayList<Integer>();
         directorName="Sean McAnally";
     }
 
-    public Band(ArrayList<String> i, ArrayList<Integer> nP, String dN)
+    public Band(ArrayList<String> i, ArrayList<Integer> nP, String dN)  //overloading constructor with parameters for Band fields only
     {
         // initialise instance variables
         super();
@@ -35,16 +31,15 @@ public class Band extends Extracurricular
         directorName=dN;
     }
 
-    public Band(int h, int m, ArrayList<String> i, ArrayList<Integer> nP, String dN)
+    public Band(int h, int m, ArrayList<String> i, ArrayList<Integer> nP, String dN) //overloading constructor with parameters for fields of Band and Extracurricular
     {
-        // initialise instance variables
         super(h, m);
         instruments=i;
         numPlayers=nP;
         directorName=dN;
     }
 
-    public void addPlayer(String instr){
+    public void addPlayer(String instr){ //Adds player of given instrument. If player of
         for (int i=0; i<instruments.size(); i++){
             if (instruments.get(i).equals(instr)){
                 int currNumPlayers=numPlayers.get(i);
@@ -58,7 +53,7 @@ public class Band extends Extracurricular
         super.setMembers(super.getMembers()+1);
     }
 
-    public String isPlayer(String instr){
+    public String isPlayer(String instr){ //Checks if someone in the Band plays the given instrument
         for (int i=0; i<instruments.size(); i++){
           if (instr.equals(instruments.get(i)) && numPlayers.get(i)>0){
             return("yes :)");
@@ -67,7 +62,7 @@ public class Band extends Extracurricular
         return("no :(");
     }
 
-    public int amountOfType(String type){
+    public int amountOfType(String type){ //counts number of instrumentsin instruments list beloning to given category by calling numMatches to count matches between Strings in instrument list and Strings in category lists.
       if (type.equals("woodwind")){
         String[] woodwind={"flute", "oboe", "saxophone"};
         return(numMatches(woodwind));
@@ -86,7 +81,7 @@ public class Band extends Extracurricular
       }
     }
 
-    public int numMatches(String[] type){
+    public int numMatches(String[] type){ //finds number of Strings shared by instruments and given array
       int numMatches=0;
       for (int j=0; j<instruments.size(); j++){
         for (int i=0; i<type.length; i++){
@@ -98,6 +93,7 @@ public class Band extends Extracurricular
       return(numMatches);
     }
 
+    //accessor methods
     public int getHours(){
       return(super.getHours());
     }
@@ -118,6 +114,7 @@ public class Band extends Extracurricular
       return(numPlayers);
     }
 
+    //modifier methods
     public void setHours(int h){
       super.setHours(h);
     }
@@ -138,9 +135,9 @@ public class Band extends Extracurricular
       numPlayers=nP;
     }
 
+    //returns String containing all fields of Band and Extracurricular, so that this String can be printed with S.o.pl(object of this class);
     public String toString(){
-      return(super.toString()+", instruments: "+instruments+", number of players for each instrument: "+numPlayers);
-      //return(", Instruments: "+instruments+", Number of Players for Each Instrument: "+numPlayers);
+      return(super.toString()+", instruments: "+instruments+", number of players for each instrument: "+numPlayers+", director: "+directorName);
     }
 
 

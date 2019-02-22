@@ -15,7 +15,7 @@ public class Runner{
     System.out.println(extracurricular1.toString()); //println hours per day, num of mems
     System.out.println("Does this extracurricular get you into college? "+extracurricular1.isCollegeReady());
 
-    //at the start otf the year, the band already has 3 guitarists and 2 saxophonists. The director is Ashley Lu.
+    //at the start of the year, the band already has 3 guitarists and 2 saxophonists. The director is Ashley Lu.
     //This extracurricular takes 1 hr a day, has 5 members (exluding the director).
     ArrayList<String> instr=new ArrayList<String>();
     instr.add("guitar");
@@ -23,7 +23,7 @@ public class Runner{
     ArrayList<Integer> nPlayers=new ArrayList<Integer>();
     nPlayers.add(3);
     nPlayers.add(2);
-    Band band=new Band(1, 5, instr, nPlayers, "Ashley Lu");
+    Band band=new Band(1, 5, instr, nPlayers, "Ashley Lu"); //1 hr per day, 5 members, 3 guitar players, 2 saxophone players, director: Ashley Lu
 
     //add instruments
     for (int i=0; i<5; i++){
@@ -40,13 +40,14 @@ public class Runner{
 
     //printing "properties"
     System.out.println(band.toString()); //println number of hours per day, number of members, list of instuments, and list of number of players of each instrument
+
     System.out.println("Is there a saxophone player? "+band.isPlayer("saxophone"));
     System.out.println("Is there a xylophone player? "+band.isPlayer("xylophone"));
 
+    System.out.println("Number of string instrument players: "+band.amountOfType("string"));
+    System.out.println("Number of woodwind instrument players: "+band.amountOfType("woodwind"));
 
-
-    System.out.println("number of string instrument players: "+band.amountOfType("string"));
-    System.out.println("number of woodwind instrument players: "+band.amountOfType("woodwind"));
+    System.out.println("Probability that the band will play well at the next concert: "+band.successRate());
     System.out.println("Does Band get you into college? "+band.isCollegeReady());
   }
 }
